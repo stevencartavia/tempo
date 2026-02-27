@@ -42,6 +42,10 @@ pub type BlockBody = alloy_consensus::BlockBody<TempoTxEnvelope, TempoHeader>;
 #[cfg(feature = "reth")]
 pub type TempoReceipt<L = Log> = EthereumReceipt<TempoTxType, L>;
 
+/// Tempo receipt (non-reth fallback, uses alloy's EthereumReceipt).
+#[cfg(not(feature = "reth"))]
+pub type TempoReceipt<L = alloy_primitives::Log> = alloy_consensus::EthereumReceipt<TempoTxType, L>;
+
 /// A [`NodePrimitives`] implementation for Tempo.
 #[derive(Debug, Clone, Default, Eq, PartialEq)]
 #[non_exhaustive]

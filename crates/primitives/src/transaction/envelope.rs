@@ -59,6 +59,13 @@ pub enum TempoTxEnvelope {
     AA(AASigned),
 }
 
+impl alloy_consensus::InMemorySize for TempoTxType {
+    #[inline]
+    fn size(&self) -> usize {
+        core::mem::size_of::<Self>()
+    }
+}
+
 impl TryFrom<TxType> for TempoTxType {
     type Error = UnsupportedTransactionType<TxType>;
 
