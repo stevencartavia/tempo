@@ -12335,7 +12335,6 @@ dependencies = [
  "alloy-provider 2.0.0-rc.0",
  "alloy-rpc-types-eth 2.0.0-rc.0",
  "alloy-serde 2.0.0-rc.0",
- "alloy-signer 2.0.0-rc.0",
  "alloy-signer-local 2.0.0-rc.0",
  "alloy-transport 2.0.0-rc.0",
  "derive_more",

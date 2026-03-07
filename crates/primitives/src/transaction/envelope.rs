@@ -386,6 +386,53 @@ impl TempoTypedTransaction {
     }
 }
 
+impl SignableTransaction<Signature> for TempoTypedTransaction {
+    fn set_chain_id(&mut self, chain_id: u64) {
+        match self {
+            Self::Legacy(tx) => tx.set_chain_id(chain_id),
+            Self::Eip2930(tx) => tx.set_chain_id(chain_id),
+            Self::Eip1559(tx) => tx.set_chain_id(chain_id),
+            Self::Eip7702(tx) => tx.set_chain_id(chain_id),
+            Self::AA(tx) => tx.set_chain_id(chain_id),
+        }
+    }
+
+    fn encode_for_signing(&self, out: &mut dyn alloy_rlp::BufMut) {
+        match self {
+            Self::Legacy(tx) => tx.encode_for_signing(out),
+            Self::Eip2930(tx) => tx.encode_for_signing(out),
+            Self::Eip1559(tx) => tx.encode_for_signing(out),
+            Self::Eip7702(tx) => tx.encode_for_signing(out),
+            Self::AA(tx) => tx.encode_for_signing(out),
+        }
+    }
+
+    fn payload_len_for_signature(&self) -> usize {
+        match self {
+            Self::Legacy(tx) => tx.payload_len_for_signature(),
+            Self::Eip2930(tx) => tx.payload_len_for_signature(),
+            Self::Eip1559(tx) => tx.payload_len_for_signature(),
+            Self::Eip7702(tx) => tx.payload_len_for_signature(),
+            Self::AA(tx) => tx.payload_len_for_signature(),
+        }
+    }
+
+    fn into_signed(self, signature: Signature) -> Signed<Self> {
+        let mut buf = alloc::vec::Vec::with_capacity(self.payload_len_for_signature());
+        self.encode_for_signing(&mut buf);
+        let hash = alloy_primitives::keccak256(&buf);
+        Signed::new_unchecked(self, signature, hash)
+    }
+}
+
+impl From<Signed<TempoTypedTransaction>> for TempoTxEnvelope {
+    fn from(value: Signed<TempoTypedTransaction>) -> Self {
+        let sig = *value.signature();
+        let tx = value.strip_signature();
+        tx.into_envelope(sig)
+    }
+}
+
 impl TryFrom<TypedTransaction> for TempoTypedTransaction {
     type Error = UnsupportedTransactionType<TxType>;
 

@@ -263,6 +263,12 @@ impl From<TempoTxEnvelope> for TempoTransactionRequest {
     }
 }
 
+impl From<alloy_rpc_types_eth::Transaction<TempoTxEnvelope>> for TempoTransactionRequest {
+    fn from(value: alloy_rpc_types_eth::Transaction<TempoTxEnvelope>) -> Self {
+        value.inner.into_inner().into()
+    }
+}
+
 pub trait FeeToken {
     fn fee_token(&self) -> Option<Address>;
 }

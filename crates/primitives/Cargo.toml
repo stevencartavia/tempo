@@ -60,7 +60,7 @@ rand.workspace = true
 tracing-subscriber = { workspace = true, features = ["env-filter"] }
 
 [features]
-default = ["std", "reth", "serde", "reth-codec", "serde-bincode-compat", "rpc"]
+default = ["std", "serde"]
 std = [
 	"alloy-consensus/secp256k1",
 	"alloy-consensus/std",
