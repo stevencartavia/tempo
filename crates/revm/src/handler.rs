@@ -640,9 +640,7 @@ where
         result: <<Self::Evm as EvmTr>::Frame as FrameTr>::FrameResult,
         result_gas: ResultGas,
     ) -> Result<ExecutionResult<Self::HaltReason>, Self::Error> {
-        // reset initial gas to 0 to avoid gas limit check errors
-        evm.initial_gas = 0;
-        evm.fee_token = None;
+        evm.clear();
 
         MainnetHandler::default()
             .execution_result(evm, result, result_gas)
@@ -1083,6 +1081,11 @@ where
             let gas_used = provider.gas_used();
             drop(provider);
 
+            // Cache inline key authorization expiry.
+            if let Some(expiry) = key_auth.expiry {
+                evm.key_expiry = Some(expiry);
+            }
+
             // activated only on T1/T1A fork.
             // T1B+: Skip adding precompile gas to initial_gas since it is already
             // accounted for in intrinsic gas. The precompile runs with unlimited gas
@@ -1138,13 +1141,13 @@ where
                 .unwrap_or(false);
 
             // Always need to set the transaction key for Keychain signatures
-            let scope_validation_gas = StorageCtx::enter_precompile(
+            let (scope_validation_gas, stored_key_expiry) = StorageCtx::enter_precompile(
                 journal,
                 block,
                 cfg,
                 tx,
                 |mut keychain: AccountKeychain| {
-                    if is_authorizing_this_key {
+                    let key_expiry = if is_authorizing_this_key {
                         if spec.is_t3()
                             && tempo_tx_env
                                 .key_authorization
@@ -1159,6 +1162,11 @@ where
                             }
                             .into());
                         }
+                        // Same-tx auth+use: expiry comes from the inline KeyAuthorization
+                        tempo_tx_env
+                            .key_authorization
+                            .as_ref()
+                            .and_then(|ka| ka.expiry)
                     } else {
                         // Validate that user_address has authorized this access key in the keychain
                         let user_address = &keychain_sig.user_address;
@@ -1172,7 +1180,7 @@ where
                             .is_t3()
                             .then_some(keychain_sig.signature.signature_type().into());
 
-                        keychain
+                        let key = keychain
                             .validate_keychain_authorization(
                                 *user_address,
                                 access_key_addr,
@@ -1182,7 +1190,10 @@ where
                             .map_err(|e| TempoInvalidTransaction::KeychainValidationFailed {
                                 reason: format!("{e:?}"),
                             })?;
-                    }
+
+                        // Surface stored key expiry
+                        Some(key.expiry)
+                    };
 
                     // Set the transaction key in the keychain precompile
                     // This marks that the current transaction is using an access key
@@ -1213,10 +1224,14 @@ where
                         0
                     };
 
-                    Ok::<u64, EVMError<DB::Error, TempoInvalidTransaction>>(scope_validation_gas)
+                    Ok::<_, EVMError<_, TempoInvalidTransaction>>((
+                        scope_validation_gas,
+                        key_expiry,
+                    ))
                 },
             )?;
 
+            evm.key_expiry = stored_key_expiry;
             evm.initial_gas += scope_validation_gas;
         }
 
@@ -1415,7 +1430,8 @@ where
 
             // Validate time window for AA transactions
             let block_timestamp = evm.ctx_ref().block().timestamp().saturating_to();
-            validate_time_window(aa_env.valid_after, aa_env.valid_before, block_timestamp)?;
+            let valid_after = aa_env.valid_after.filter(|_| !evm.skip_valid_after_check);
+            validate_time_window(valid_after, aa_env.valid_before, block_timestamp)?;
         }
 
         Ok(())
@@ -1513,9 +1529,7 @@ where
         evm: &mut Self::Evm,
         error: Self::Error,
     ) -> Result<ExecutionResult<Self::HaltReason>, Self::Error> {
-        // reset initial gas to 0 to avoid gas limit check errors
-        evm.initial_gas = 0;
-        evm.fee_token = None;
+        evm.clear();
 
         // For subblock transactions that failed `collectFeePreTx` call we catch error and treat such transactions as valid.
         if evm.ctx.tx.is_subblock_transaction()
@@ -1545,6 +1559,41 @@ where
                 .map(|result| result.map_haltreason(Into::into))
         }
     }
+}
+
+impl<DB, I> TempoEvmHandler<DB, I>
+where
+    DB: alloy_evm::Database,
+{
+    /// Runs the full transaction validation pipeline without executing the transaction.
+    ///
+    /// Returns a [`ValidationContext`] with context relevant for the transaction pool.
+    pub fn validate_transaction(
+        &mut self,
+        evm: &mut TempoEvm<DB, I>,
+    ) -> Result<ValidationContext, EVMError<DB::Error, TempoInvalidTransaction>> {
+        self.validate(evm)?;
+        self.pre_execution(evm)?;
+        let result = ValidationContext {
+            fee_token: evm
+                .fee_token
+                .expect("set in `validate_against_state_and_deduct_caller`"),
+            key_expiry: evm.key_expiry,
+        };
+        evm.clear();
+        Ok(result)
+    }
+}
+
+/// Context returned by [`TempoEvmHandler::validate_transaction`] with resolved
+/// fee token and key expiry information for use by the transaction pool.
+#[derive(Debug, Clone)]
+pub struct ValidationContext {
+    /// The resolved fee token address used to pay for this transaction.
+    pub fee_token: Address,
+    /// The expiry timestamp of the access key used by this transaction.
+    /// Populated for keychain-signed transactions or transactions carrying a KeyAuthorization.
+    pub key_expiry: Option<u64>,
 }
 
 /// Calculates intrinsic gas for an AA transaction batch using revm helpers.
