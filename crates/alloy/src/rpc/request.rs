@@ -314,6 +314,12 @@ impl From<TempoTransactionRequest> for TransactionRequest {
     }
 }
 
+impl From<alloy_rpc_types_eth::Transaction<TempoTxEnvelope>> for TempoTransactionRequest {
+    fn from(tx: alloy_rpc_types_eth::Transaction<TempoTxEnvelope>) -> Self {
+        tx.inner.into_inner().into()
+    }
+}
+
 impl From<TempoTxEnvelope> for TempoTransactionRequest {
     fn from(value: TempoTxEnvelope) -> Self {
         match value {

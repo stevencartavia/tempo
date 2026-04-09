@@ -121,21 +121,20 @@ checksum = "683d7910e743518b0e34f1186f92494becacb047c7b6bf616c96772180fef923"
 
 [[package]]
 name = "alloy"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "50ab0cd8afe573d1f7dc2353698a51b1f93aec362c8211e28cfd3948c6adba39"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-consensus",
  "alloy-contract",
  "alloy-core",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-genesis",
  "alloy-network",
  "alloy-provider",
  "alloy-pubsub",
  "alloy-rpc-client",
  "alloy-rpc-types",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "alloy-signer",
  "alloy-signer-local",
  "alloy-transport",
@@ -160,14 +159,13 @@ dependencies = [
 
 [[package]]
 name = "alloy-consensus"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7f16daaf7e1f95f62c6c3bf8a3fc3d78b08ae9777810c0bb5e94966c7cd57ef0"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rlp",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "alloy-trie",
  "alloy-tx-macros",
  "arbitrary",
@@ -188,24 +186,22 @@ dependencies = [
 
 [[package]]
 name = "alloy-consensus-any"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "118998d9015332ab1b4720ae1f1e3009491966a0349938a1f43ff45a8a4c6299"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rlp",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "arbitrary",
  "serde",
 ]
 
 [[package]]
 name = "alloy-contract"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7ac9e0c34dc6bce643b182049cdfcca1b8ce7d9c260cbdd561f511873b7e26cd"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-consensus",
  "alloy-dyn-abi",
@@ -326,15 +322,37 @@ dependencies = [
  "alloy-eip7928",
  "alloy-primitives",
  "alloy-rlp",
- "alloy-serde",
+ "alloy-serde 1.8.3",
+ "auto_impl",
+ "borsh",
+ "c-kzg",
+ "derive_more",
+ "either",
+ "serde",
+ "serde_with",
+ "sha2 0.10.9",
+]
+
+[[package]]
+name = "alloy-eips"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
+dependencies = [
+ "alloy-eip2124",
+ "alloy-eip2930",
+ "alloy-eip7702",
+ "alloy-eip7928",
+ "alloy-primitives",
+ "alloy-rlp",
+ "alloy-serde 2.0.0-rc.1",
  "arbitrary",
  "auto_impl",
  "borsh",
  "c-kzg",
  "derive_more",
  "either",
- "ethereum_ssz 0.9.1",
- "ethereum_ssz_derive 0.9.1",
+ "ethereum_ssz",
+ "ethereum_ssz_derive",
  "serde",
  "serde_with",
  "sha2 0.10.9",
@@ -343,11 +361,10 @@ dependencies = [
 [[package]]
 name = "alloy-evm"
 version = "0.30.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e13146597a586a4166ac31b192883e08c044272d6b8c43de231ee1f43dd9a115"
+source = "git+https://github.com/stevencartavia/evm.git?branch=alloy-2.0-rc1#b462b3e52d909f14289b8e17e5fe14a1d252d8f8"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-hardforks",
  "alloy-primitives",
  "alloy-rpc-types-engine",
@@ -362,13 +379,12 @@ dependencies = [
 
 [[package]]
 name = "alloy-genesis"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bbf9480307b09d22876efb67d30cadd9013134c21f3a17ec9f93fd7536d38024"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "alloy-trie",
  "borsh",
  "serde",
@@ -403,9 +419,8 @@ dependencies = [
 
 [[package]]
 name = "alloy-json-rpc"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "422d110f1c40f1f8d0e5562b0b649c35f345fccb7093d9f02729943dcd1eef71"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-primitives",
  "alloy-sol-types",
@@ -418,19 +433,18 @@ dependencies = [
 
 [[package]]
 name = "alloy-network"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7197a66d94c4de1591cdc16a9bcea5f8cccd0da81b865b49aef97b1b4016e0fa"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-consensus",
  "alloy-consensus-any",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-json-rpc",
  "alloy-network-primitives",
  "alloy-primitives",
  "alloy-rpc-types-any",
  "alloy-rpc-types-eth",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "alloy-signer",
  "alloy-sol-types",
  "async-trait",
@@ -444,14 +458,13 @@ dependencies = [
 
 [[package]]
 name = "alloy-network-primitives"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "eb82711d59a43fdfd79727c99f270b974c784ec4eb5728a0d0d22f26716c87ef"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "serde",
 ]
 
@@ -487,13 +500,12 @@ dependencies = [
 
 [[package]]
 name = "alloy-provider"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bf6b18b929ef1d078b834c3631e9c925177f3b23ddc6fa08a722d13047205876"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-chains",
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-json-rpc",
  "alloy-network",
  "alloy-network-primitives",
@@ -533,9 +545,8 @@ dependencies = [
 
 [[package]]
 name = "alloy-pubsub"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5ad54073131e7292d4e03e1aa2287730f737280eb160d8b579fb31939f558c11"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-json-rpc",
  "alloy-primitives",
@@ -577,9 +588,8 @@ dependencies = [
 
 [[package]]
 name = "alloy-rpc-client"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "94fcc9604042ca80bd37aa5e232ea1cd851f337e31e2babbbb345bc0b1c30de3"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-json-rpc",
  "alloy-primitives",
@@ -603,9 +613,8 @@ dependencies = [
 
 [[package]]
 name = "alloy-rpc-types"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4faad925d3a669ffc15f43b3deec7fbdf2adeb28a4d6f9cf4bc661698c0f8f4b"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-primitives",
  "alloy-rpc-types-anvil",
@@ -614,15 +623,14 @@ dependencies = [
  "alloy-rpc-types-eth",
  "alloy-rpc-types-trace",
  "alloy-rpc-types-txpool",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "serde",
 ]
 
 [[package]]
 name = "alloy-rpc-types-admin"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b38080c2b01ad1bacbd3583cf7f6f800e5e0ffc11eaddaad7321225733a2d818"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-genesis",
  "alloy-primitives",
@@ -632,39 +640,36 @@ dependencies = [
 
 [[package]]
 name = "alloy-rpc-types-anvil"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "47df51bedb3e6062cb9981187a51e86d0d64a4de66eb0855e9efe6574b044ddf"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-primitives",
  "alloy-rpc-types-eth",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "serde",
 ]
 
 [[package]]
 name = "alloy-rpc-types-any"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3823026d1ed239a40f12364fac50726c8daf1b6ab8077a97212c5123910429ed"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-consensus-any",
  "alloy-rpc-types-eth",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
 ]
 
 [[package]]
 name = "alloy-rpc-types-beacon"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f526dbd7bb039327cfd0ccf18c8a29ffd7402616b0c7a0239512bf8417d544c7"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rpc-types-engine",
  "derive_more",
- "ethereum_ssz 0.9.1",
- "ethereum_ssz_derive 0.9.1",
+ "ethereum_ssz",
+ "ethereum_ssz_derive",
  "serde",
  "serde_json",
  "serde_with",
@@ -675,11 +680,11 @@ dependencies = [
 
 [[package]]
 name = "alloy-rpc-types-debug"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2145138f3214928f08cd13da3cb51ef7482b5920d8ac5a02ecd4e38d1a8f6d1e"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-primitives",
+ "alloy-rlp",
  "derive_more",
  "serde",
  "serde_with",
@@ -687,18 +692,17 @@ dependencies = [
 
 [[package]]
 name = "alloy-rpc-types-engine"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bb9b97b6e7965679ad22df297dda809b11cebc13405c1b537e5cffecc95834fa"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rlp",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "derive_more",
- "ethereum_ssz 0.9.1",
- "ethereum_ssz_derive 0.9.1",
+ "ethereum_ssz",
+ "ethereum_ssz_derive",
  "jsonwebtoken",
  "rand 0.8.5",
  "serde",
@@ -707,20 +711,19 @@ dependencies = [
 
 [[package]]
 name = "alloy-rpc-types-eth"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "59c095f92c4e1ff4981d89e9aa02d5f98c762a1980ab66bec49c44be11349da2"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-consensus",
  "alloy-consensus-any",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-network-primitives",
  "alloy-primitives",
  "alloy-rlp",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "alloy-sol-types",
  "arbitrary",
- "itertools 0.14.0",
+ "itertools 0.13.0",
  "serde",
  "serde_json",
  "serde_with",
@@ -729,28 +732,26 @@ dependencies = [
 
 [[package]]
 name = "alloy-rpc-types-mev"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8eae9c65ff60dcc262247b6ebb5ad391ddf36d09029802c1768c5723e0cfa2f4"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rpc-types-eth",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "serde",
  "serde_json",
 ]
 
 [[package]]
 name = "alloy-rpc-types-trace"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2e5a4d010f86cd4e01e5205ec273911e538e1738e76d8bafe9ecd245910ea5a3"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-primitives",
  "alloy-rpc-types-eth",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "serde",
  "serde_json",
  "thiserror 2.0.18",
@@ -758,13 +759,12 @@ dependencies = [
 
 [[package]]
 name = "alloy-rpc-types-txpool"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "942d26a2ca8891b26de4a8529d21091e21c1093e27eb99698f1a86405c76b1ff"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-primitives",
  "alloy-rpc-types-eth",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "serde",
 ]
 
@@ -775,6 +775,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "11ece63b89294b8614ab3f483560c08d016930f842bf36da56bf0b764a15c11e"
 dependencies = [
  "alloy-primitives",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "alloy-serde"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
+dependencies = [
+ "alloy-primitives",
  "arbitrary",
  "serde",
  "serde_json",
@@ -782,9 +792,8 @@ dependencies = [
 
 [[package]]
 name = "alloy-signer"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "43f447aefab0f1c0649f71edc33f590992d4e122bc35fb9cdbbf67d4421ace85"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-primitives",
  "async-trait",
@@ -797,9 +806,8 @@ dependencies = [
 
 [[package]]
 name = "alloy-signer-local"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f721f4bf2e4812e5505aaf5de16ef3065a8e26b9139ac885862d00b5a55a659a"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-consensus",
  "alloy-network",
@@ -891,9 +899,8 @@ dependencies = [
 
 [[package]]
 name = "alloy-transport"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8098f965442a9feb620965ba4b4be5e2b320f4ec5a3fff6bfa9e1ff7ef42bed1"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-json-rpc",
  "auto_impl",
@@ -914,13 +921,12 @@ dependencies = [
 
 [[package]]
 name = "alloy-transport-http"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e8597d36d546e1dab822345ad563243ec3920e199322cb554ce56c8ef1a1e2e7"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-json-rpc",
  "alloy-transport",
- "itertools 0.14.0",
+ "itertools 0.13.0",
  "reqwest 0.13.2",
  "serde_json",
  "tower",
@@ -930,9 +936,8 @@ dependencies = [
 
 [[package]]
 name = "alloy-transport-ipc"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a1bd98c3870b8a44b79091dde5216a81d58ffbc1fd8ed61b776f9fee0f3bdf20"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-json-rpc",
  "alloy-pubsub",
@@ -950,9 +955,8 @@ dependencies = [
 
 [[package]]
 name = "alloy-transport-ws"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ec3ab7a72b180992881acc112628b7668337a19ce15293ee974600ea7b693691"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "alloy-pubsub",
  "alloy-transport",
@@ -989,9 +993,8 @@ dependencies = [
 
 [[package]]
 name = "alloy-tx-macros"
-version = "1.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d69722eddcdf1ce096c3ab66cf8116999363f734eb36fe94a148f4f71c85da84"
+version = "2.0.0-rc.1"
+source = "git+https://github.com/alloy-rs/alloy?branch=release%2F2.0.0-rc.1#00edc42c9ad6d32160de2ee13e7cf7a5b9a8f0c4"
 dependencies = [
  "darling 0.23.0",
  "proc-macro2",
@@ -3737,9 +3740,9 @@ dependencies = [
 
 [[package]]
 name = "ethereum_hashing"
-version = "0.7.0"
+version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c853bd72c9e5787f8aafc3df2907c2ed03cff3150c3acd94e2e53a98ab70a8ab"
+checksum = "5aa93f58bb1eb3d1e556e4f408ef1dac130bad01ac37db4e7ade45de40d1c86a"
 dependencies = [
  "cpufeatures",
  "ring",
@@ -3761,21 +3764,6 @@ dependencies = [
 
 [[package]]
 name = "ethereum_ssz"
-version = "0.9.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0dcddb2554d19cde19b099fadddde576929d7a4d0c1cd3512d1fd95cf174375c"
-dependencies = [
- "alloy-primitives",
- "ethereum_serde_utils",
- "itertools 0.13.0",
- "serde",
- "serde_derive",
- "smallvec",
- "typenum",
-]
-
-[[package]]
-name = "ethereum_ssz"
 version = "0.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2128a84f7a3850d54ee343334e3392cca61f9f6aa9441eec481b9394b43c238b"
@@ -3787,18 +3775,6 @@ dependencies = [
  "serde_derive",
  "smallvec",
  "typenum",
-]
-
-[[package]]
-name = "ethereum_ssz_derive"
-version = "0.9.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a657b6b3b7e153637dc6bdc6566ad9279d9ee11a15b12cfb24a2e04360637e9f"
-dependencies = [
- "darling 0.20.11",
- "proc-macro2",
- "quote",
- "syn 2.0.117",
 ]
 
 [[package]]
@@ -5383,16 +5359,18 @@ dependencies = [
 
 [[package]]
 name = "jsonwebtoken"
-version = "9.3.1"
+version = "10.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5a87cc7a48537badeae96744432de36f4be2b4a34a05a5ef32e9dd8a1c169dde"
+checksum = "0529410abe238729a60b108898784df8984c87f6054c9c4fcacc47e4803c1ce1"
 dependencies = [
+ "aws-lc-rs",
  "base64 0.22.1",
+ "getrandom 0.2.17",
  "js-sys",
  "pem",
- "ring",
  "serde",
  "serde_json",
+ "signature",
  "simple_asn1",
 ]
 
@@ -7611,10 +7589,10 @@ checksum = "1e061d1b48cb8d38042de4ae0a7a6401009d6143dc80d2e2d6f31f0bdd6470c7"
 [[package]]
 name = "reth-basic-payload-builder"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "futures-core",
  "futures-util",
@@ -7638,10 +7616,10 @@ dependencies = [
 [[package]]
 name = "reth-chain-state"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-signer",
  "alloy-signer-local",
@@ -7670,11 +7648,11 @@ dependencies = [
 [[package]]
 name = "reth-chainspec"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-chains",
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-evm",
  "alloy-genesis",
  "alloy-primitives",
@@ -7690,7 +7668,7 @@ dependencies = [
 [[package]]
 name = "reth-cli"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-genesis",
  "clap",
@@ -7703,11 +7681,11 @@ dependencies = [
 [[package]]
 name = "reth-cli-commands"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-chains",
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rlp",
  "backon",
@@ -7786,7 +7764,7 @@ dependencies = [
 [[package]]
 name = "reth-cli-runner"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "reth-tasks",
  "tokio",
@@ -7796,9 +7774,9 @@ dependencies = [
 [[package]]
 name = "reth-cli-util"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "cfg-if",
  "eyre",
@@ -7817,11 +7795,10 @@ dependencies = [
 [[package]]
 name = "reth-codecs"
 version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bf1df733d93427eb197cf80a7aaa68bff8949e1b59d34cde1ad410351a24136d"
+source = "git+https://github.com/stevencartavia/reth-core?branch=alloy-2.0#4971f56e3778debbd77da3f1c74db758dcef8b56"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-genesis",
  "alloy-primitives",
  "alloy-trie",
@@ -7838,8 +7815,7 @@ dependencies = [
 [[package]]
 name = "reth-codecs-derive"
 version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d14acf8feadf1eed0734d1766b55b6c19a374d4cb140bc862880f96da33e7e5a"
+source = "git+https://github.com/stevencartavia/reth-core?branch=alloy-2.0#4971f56e3778debbd77da3f1c74db758dcef8b56"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -7849,7 +7825,7 @@ dependencies = [
 [[package]]
 name = "reth-config"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "eyre",
  "humantime-serde",
@@ -7865,7 +7841,7 @@ dependencies = [
 [[package]]
 name = "reth-consensus"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
  "alloy-primitives",
@@ -7878,10 +7854,10 @@ dependencies = [
 [[package]]
 name = "reth-consensus-common"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "reth-chainspec",
  "reth-consensus",
@@ -7891,10 +7867,10 @@ dependencies = [
 [[package]]
 name = "reth-consensus-debug-client"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-json-rpc",
  "alloy-primitives",
  "alloy-provider",
@@ -7917,7 +7893,7 @@ dependencies = [
 [[package]]
 name = "reth-db"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-primitives",
  "derive_more",
@@ -7945,7 +7921,7 @@ dependencies = [
 [[package]]
 name = "reth-db-api"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
  "alloy-primitives",
@@ -7971,7 +7947,7 @@ dependencies = [
 [[package]]
 name = "reth-db-common"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
  "alloy-genesis",
@@ -8001,9 +7977,9 @@ dependencies = [
 [[package]]
 name = "reth-db-models"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "arbitrary",
  "bytes",
@@ -8016,7 +7992,7 @@ dependencies = [
 [[package]]
 name = "reth-discv4"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-primitives",
  "alloy-rlp",
@@ -8041,7 +8017,7 @@ dependencies = [
 [[package]]
 name = "reth-discv5"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-primitives",
  "alloy-rlp",
@@ -8065,7 +8041,7 @@ dependencies = [
 [[package]]
 name = "reth-dns-discovery"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-primitives",
  "dashmap",
@@ -8089,10 +8065,10 @@ dependencies = [
 [[package]]
 name = "reth-downloaders"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rlp",
  "async-compression",
@@ -8124,10 +8100,10 @@ dependencies = [
 [[package]]
 name = "reth-e2e-test-utils"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-network",
  "alloy-primitives",
  "alloy-provider",
@@ -8181,7 +8157,7 @@ dependencies = [
 [[package]]
 name = "reth-ecies"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "aes",
  "alloy-primitives",
@@ -8209,7 +8185,7 @@ dependencies = [
 [[package]]
 name = "reth-engine-local"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
  "alloy-primitives",
@@ -8232,10 +8208,10 @@ dependencies = [
 [[package]]
 name = "reth-engine-primitives"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rpc-types-engine",
  "auto_impl",
@@ -8257,11 +8233,11 @@ dependencies = [
 [[package]]
 name = "reth-engine-tree"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
  "alloy-eip7928",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-evm",
  "alloy-primitives",
  "alloy-rlp",
@@ -8314,7 +8290,7 @@ dependencies = [
 [[package]]
 name = "reth-engine-util"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
  "alloy-rpc-types-engine",
@@ -8342,14 +8318,14 @@ dependencies = [
 [[package]]
 name = "reth-era"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rlp",
- "ethereum_ssz 0.10.1",
- "ethereum_ssz_derive 0.10.1",
+ "ethereum_ssz",
+ "ethereum_ssz_derive",
  "snap",
  "thiserror 2.0.18",
 ]
@@ -8357,7 +8333,7 @@ dependencies = [
 [[package]]
 name = "reth-era-downloader"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-primitives",
  "bytes",
@@ -8373,7 +8349,7 @@ dependencies = [
 [[package]]
 name = "reth-era-utils"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
  "alloy-primitives",
@@ -8395,7 +8371,7 @@ dependencies = [
 [[package]]
 name = "reth-errors"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "reth-consensus",
  "reth-execution-errors",
@@ -8406,7 +8382,7 @@ dependencies = [
 [[package]]
 name = "reth-eth-wire"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-chains",
  "alloy-primitives",
@@ -8434,11 +8410,11 @@ dependencies = [
 [[package]]
 name = "reth-eth-wire-types"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-chains",
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-hardforks",
  "alloy-primitives",
  "alloy-rlp",
@@ -8455,7 +8431,7 @@ dependencies = [
 [[package]]
 name = "reth-ethereum"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-rpc-types-engine",
  "alloy-rpc-types-eth",
@@ -8496,7 +8472,7 @@ dependencies = [
 [[package]]
 name = "reth-ethereum-cli"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "clap",
  "eyre",
@@ -8519,10 +8495,10 @@ dependencies = [
 [[package]]
 name = "reth-ethereum-consensus"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "reth-chainspec",
  "reth-consensus",
@@ -8535,9 +8511,9 @@ dependencies = [
 [[package]]
 name = "reth-ethereum-engine-primitives"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rpc-types-engine",
  "reth-engine-primitives",
@@ -8551,7 +8527,7 @@ dependencies = [
 [[package]]
 name = "reth-ethereum-forks"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-eip2124",
  "alloy-hardforks",
@@ -8564,10 +8540,10 @@ dependencies = [
 [[package]]
 name = "reth-ethereum-payload-builder"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rlp",
  "alloy-rpc-types-engine",
@@ -8594,10 +8570,10 @@ dependencies = [
 [[package]]
 name = "reth-ethereum-primitives"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rpc-types-eth",
  "reth-codecs",
@@ -8608,7 +8584,7 @@ dependencies = [
 [[package]]
 name = "reth-etl"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "rayon",
  "reth-db-api",
@@ -8618,10 +8594,10 @@ dependencies = [
 [[package]]
 name = "reth-evm"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-evm",
  "alloy-primitives",
  "auto_impl",
@@ -8642,10 +8618,10 @@ dependencies = [
 [[package]]
 name = "reth-evm-ethereum"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-evm",
  "alloy-primitives",
  "alloy-rpc-types-engine",
@@ -8662,7 +8638,7 @@ dependencies = [
 [[package]]
 name = "reth-execution-cache"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-primitives",
  "fixed-cache",
@@ -8680,7 +8656,7 @@ dependencies = [
 [[package]]
 name = "reth-execution-errors"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-evm",
  "alloy-primitives",
@@ -8693,10 +8669,10 @@ dependencies = [
 [[package]]
 name = "reth-execution-types"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-evm",
  "alloy-primitives",
  "alloy-rlp",
@@ -8712,10 +8688,10 @@ dependencies = [
 [[package]]
 name = "reth-exex"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "eyre",
  "futures",
@@ -8750,9 +8726,9 @@ dependencies = [
 [[package]]
 name = "reth-exex-types"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "reth-chain-state",
  "reth-execution-types",
@@ -8764,7 +8740,7 @@ dependencies = [
 [[package]]
 name = "reth-fs-util"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "serde",
  "serde_json",
@@ -8774,7 +8750,7 @@ dependencies = [
 [[package]]
 name = "reth-invalid-block-hooks"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
  "alloy-primitives",
@@ -8802,7 +8778,7 @@ dependencies = [
 [[package]]
 name = "reth-ipc"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "bytes",
  "futures",
@@ -8822,7 +8798,7 @@ dependencies = [
 [[package]]
 name = "reth-libmdbx"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "bitflags 2.11.0",
  "byteorder",
@@ -8839,7 +8815,7 @@ dependencies = [
 [[package]]
 name = "reth-mdbx-sys"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "bindgen",
  "cc",
@@ -8848,7 +8824,7 @@ dependencies = [
 [[package]]
 name = "reth-metrics"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "futures",
  "metrics",
@@ -8860,7 +8836,7 @@ dependencies = [
 [[package]]
 name = "reth-net-banlist"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-primitives",
  "ipnet",
@@ -8869,7 +8845,7 @@ dependencies = [
 [[package]]
 name = "reth-net-nat"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "futures-util",
  "if-addrs",
@@ -8883,10 +8859,10 @@ dependencies = [
 [[package]]
 name = "reth-network"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rlp",
  "aquamarine",
@@ -8940,7 +8916,7 @@ dependencies = [
 [[package]]
 name = "reth-network-api"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
  "alloy-primitives",
@@ -8965,10 +8941,10 @@ dependencies = [
 [[package]]
 name = "reth-network-p2p"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "auto_impl",
  "derive_more",
@@ -8988,7 +8964,7 @@ dependencies = [
 [[package]]
 name = "reth-network-peers"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-primitives",
  "alloy-rlp",
@@ -9003,7 +8979,7 @@ dependencies = [
 [[package]]
 name = "reth-network-types"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-eip2124",
  "humantime-serde",
@@ -9017,7 +8993,7 @@ dependencies = [
 [[package]]
 name = "reth-nippy-jar"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "anyhow",
  "bincode",
@@ -9034,7 +9010,7 @@ dependencies = [
 [[package]]
 name = "reth-node-api"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-rpc-types-engine",
  "eyre",
@@ -9058,10 +9034,10 @@ dependencies = [
 [[package]]
 name = "reth-node-builder"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-provider",
  "alloy-rpc-types",
@@ -9126,10 +9102,10 @@ dependencies = [
 [[package]]
 name = "reth-node-core"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rpc-types-engine",
  "clap",
@@ -9181,9 +9157,9 @@ dependencies = [
 [[package]]
 name = "reth-node-ethereum"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-network",
  "alloy-rpc-types-engine",
  "alloy-rpc-types-eth",
@@ -9219,7 +9195,7 @@ dependencies = [
 [[package]]
 name = "reth-node-ethstats"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
  "alloy-primitives",
@@ -9243,10 +9219,10 @@ dependencies = [
 [[package]]
 name = "reth-node-events"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rpc-types-engine",
  "derive_more",
@@ -9267,7 +9243,7 @@ dependencies = [
 [[package]]
 name = "reth-node-metrics"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "bytes",
  "eyre",
@@ -9296,7 +9272,7 @@ dependencies = [
 [[package]]
 name = "reth-node-types"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "reth-chainspec",
  "reth-db-api",
@@ -9308,7 +9284,7 @@ dependencies = [
 [[package]]
 name = "reth-payload-builder"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
  "alloy-primitives",
@@ -9332,7 +9308,7 @@ dependencies = [
 [[package]]
 name = "reth-payload-builder-primitives"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "pin-project",
  "reth-payload-primitives",
@@ -9344,10 +9320,10 @@ dependencies = [
 [[package]]
 name = "reth-payload-primitives"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rlp",
  "alloy-rpc-types-engine",
@@ -9368,7 +9344,7 @@ dependencies = [
 [[package]]
 name = "reth-payload-validator"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
  "alloy-rpc-types-engine",
@@ -9378,11 +9354,10 @@ dependencies = [
 [[package]]
 name = "reth-primitives-traits"
 version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "03650bb740d1bca0d974c007248177ae7a7e38c50c9f46eb02292c5d9bc01252"
+source = "git+https://github.com/stevencartavia/reth-core?branch=alloy-2.0#4971f56e3778debbd77da3f1c74db758dcef8b56"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-genesis",
  "alloy-primitives",
  "alloy-rlp",
@@ -9411,10 +9386,10 @@ dependencies = [
 [[package]]
 name = "reth-provider"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-genesis",
  "alloy-primitives",
  "alloy-rpc-types-engine",
@@ -9457,10 +9432,10 @@ dependencies = [
 [[package]]
 name = "reth-prune"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "itertools 0.14.0",
  "metrics",
@@ -9486,7 +9461,7 @@ dependencies = [
 [[package]]
 name = "reth-prune-types"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-primitives",
  "arbitrary",
@@ -9502,7 +9477,7 @@ dependencies = [
 [[package]]
 name = "reth-revm"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-primitives",
  "alloy-rlp",
@@ -9517,12 +9492,12 @@ dependencies = [
 [[package]]
 name = "reth-rpc"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
  "alloy-dyn-abi",
  "alloy-eip7928",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-evm",
  "alloy-genesis",
  "alloy-network",
@@ -9538,7 +9513,7 @@ dependencies = [
  "alloy-rpc-types-mev",
  "alloy-rpc-types-trace",
  "alloy-rpc-types-txpool",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "alloy-signer",
  "alloy-signer-local",
  "async-trait",
@@ -9595,10 +9570,10 @@ dependencies = [
 [[package]]
 name = "reth-rpc-api"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-eip7928",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-genesis",
  "alloy-json-rpc",
  "alloy-primitives",
@@ -9612,7 +9587,7 @@ dependencies = [
  "alloy-rpc-types-mev",
  "alloy-rpc-types-trace",
  "alloy-rpc-types-txpool",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "jsonrpsee",
  "reth-chain-state",
  "reth-engine-primitives",
@@ -9626,7 +9601,7 @@ dependencies = [
 [[package]]
 name = "reth-rpc-builder"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-network",
  "alloy-provider",
@@ -9669,7 +9644,7 @@ dependencies = [
 [[package]]
 name = "reth-rpc-convert"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
  "alloy-evm",
@@ -9689,9 +9664,9 @@ dependencies = [
 [[package]]
 name = "reth-rpc-engine-api"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rlp",
  "alloy-rpc-types-engine",
@@ -9720,12 +9695,12 @@ dependencies = [
 [[package]]
 name = "reth-rpc-eth-api"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
  "alloy-dyn-abi",
  "alloy-eip7928",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-evm",
  "alloy-json-rpc",
  "alloy-network",
@@ -9733,7 +9708,7 @@ dependencies = [
  "alloy-rlp",
  "alloy-rpc-types-eth",
  "alloy-rpc-types-mev",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "async-trait",
  "auto_impl",
  "dyn-clone",
@@ -9766,10 +9741,10 @@ dependencies = [
 [[package]]
 name = "reth-rpc-eth-types"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-evm",
  "alloy-network",
  "alloy-primitives",
@@ -9814,7 +9789,7 @@ dependencies = [
 [[package]]
 name = "reth-rpc-layer"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-rpc-types-engine",
  "http",
@@ -9828,9 +9803,9 @@ dependencies = [
 [[package]]
 name = "reth-rpc-server-types"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rpc-types-engine",
  "jsonrpsee-core",
@@ -9844,8 +9819,7 @@ dependencies = [
 [[package]]
 name = "reth-rpc-traits"
 version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b9230acfd70f7f27bc52da3f397e1896432ce160f9bd460d9788f1a28d61588c"
+source = "git+https://github.com/stevencartavia/reth-core?branch=alloy-2.0#4971f56e3778debbd77da3f1c74db758dcef8b56"
 dependencies = [
  "alloy-consensus",
  "alloy-network",
@@ -9859,10 +9833,10 @@ dependencies = [
 [[package]]
 name = "reth-stages"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rlp",
  "eyre",
@@ -9911,9 +9885,9 @@ dependencies = [
 [[package]]
 name = "reth-stages-api"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "aquamarine",
  "auto_impl",
@@ -9939,7 +9913,7 @@ dependencies = [
 [[package]]
 name = "reth-stages-types"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-primitives",
  "arbitrary",
@@ -9953,7 +9927,7 @@ dependencies = [
 [[package]]
 name = "reth-static-file"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-primitives",
  "parking_lot",
@@ -9973,7 +9947,7 @@ dependencies = [
 [[package]]
 name = "reth-static-file-types"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-primitives",
  "clap",
@@ -9988,10 +9962,10 @@ dependencies = [
 [[package]]
 name = "reth-storage-api"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rpc-types-engine",
  "auto_impl",
@@ -10012,9 +9986,9 @@ dependencies = [
 [[package]]
 name = "reth-storage-errors"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rlp",
  "derive_more",
@@ -10030,7 +10004,7 @@ dependencies = [
 [[package]]
 name = "reth-tasks"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "crossbeam-utils",
  "dashmap",
@@ -10051,10 +10025,10 @@ dependencies = [
 [[package]]
 name = "reth-testing-utils"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-genesis",
  "alloy-primitives",
  "rand 0.8.5",
@@ -10067,7 +10041,7 @@ dependencies = [
 [[package]]
 name = "reth-tokio-util"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "tokio",
  "tokio-stream",
@@ -10077,7 +10051,7 @@ dependencies = [
 [[package]]
 name = "reth-tracing"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "clap",
  "eyre",
@@ -10096,7 +10070,7 @@ dependencies = [
 [[package]]
 name = "reth-tracing-otlp"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "clap",
  "eyre",
@@ -10114,10 +10088,10 @@ dependencies = [
 [[package]]
 name = "reth-transaction-pool"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rlp",
  "aquamarine",
@@ -10158,10 +10132,10 @@ dependencies = [
 [[package]]
 name = "reth-trie"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rlp",
  "alloy-trie",
@@ -10184,13 +10158,13 @@ dependencies = [
 [[package]]
 name = "reth-trie-common"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-consensus",
  "alloy-primitives",
  "alloy-rlp",
  "alloy-rpc-types-eth",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "alloy-trie",
  "arbitrary",
  "arrayvec",
@@ -10211,7 +10185,7 @@ dependencies = [
 [[package]]
 name = "reth-trie-db"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-primitives",
  "metrics",
@@ -10231,7 +10205,7 @@ dependencies = [
 [[package]]
 name = "reth-trie-parallel"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-eip7928",
  "alloy-evm",
@@ -10260,7 +10234,7 @@ dependencies = [
 [[package]]
 name = "reth-trie-sparse"
 version = "2.0.0"
-source = "git+https://github.com/paradigmxyz/reth?rev=1911e57#1911e576d3f74767d535ac2ff188bec308b5476b"
+source = "git+https://github.com/stevencartavia/reth?branch=alloy-2.0#8fc2a4204a5ececcc4e670ca47dcf697f6ab340b"
 dependencies = [
  "alloy-primitives",
  "alloy-rlp",
@@ -10282,8 +10256,7 @@ dependencies = [
 [[package]]
 name = "reth-zstd-compressors"
 version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3be2e9bda3e45c5d87cfbe811676bfb9cb1f0e6fa82d1dd6a3e8cd996512f236"
+source = "git+https://github.com/stevencartavia/reth-core?branch=alloy-2.0#4971f56e3778debbd77da3f1c74db758dcef8b56"
 dependencies = [
  "zstd",
 ]
@@ -10358,7 +10331,7 @@ version = "12.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2c0a7d6da41061f2c50f99a2632571026b23684b5449ff319914151f4449b6c8"
 dependencies = [
- "alloy-eips",
+ "alloy-eips 1.8.3",
  "revm-bytecode",
  "revm-database-interface",
  "revm-primitives",
@@ -10420,8 +10393,7 @@ dependencies = [
 [[package]]
 name = "revm-inspectors"
 version = "0.36.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9487362b728f80dd2033ef5f4d0688453435bbe7caa721fa7e3b8fa25d89242b"
+source = "git+https://github.com/stevencartavia/revm-inspectors.git?branch=alloy-2.0-rc1#0c47814743b6fcd1f5310902afcefe89f9668ad1"
 dependencies = [
  "alloy-primitives",
  "alloy-rpc-types-eth",
@@ -11739,12 +11711,12 @@ dependencies = [
  "alloy",
  "alloy-consensus",
  "alloy-contract",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-network",
  "alloy-primitives",
  "alloy-provider",
  "alloy-rpc-types-eth",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "alloy-signer",
  "alloy-signer-local",
  "alloy-sol-types",
@@ -11800,7 +11772,7 @@ dependencies = [
 name = "tempo-chainspec"
 version = "1.5.2"
 dependencies = [
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-evm",
  "alloy-genesis",
  "alloy-hardforks",
@@ -12045,13 +12017,13 @@ name = "tempo-node"
 version = "1.5.2"
 dependencies = [
  "alloy",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-network",
  "alloy-primitives",
  "alloy-rlp",
  "alloy-rpc-types-engine",
  "alloy-rpc-types-eth",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "async-trait",
  "base64 0.22.1",
  "clap",
@@ -12143,7 +12115,7 @@ dependencies = [
 name = "tempo-payload-types"
 version = "1.5.2"
 dependencies = [
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-primitives",
  "alloy-rpc-types-engine",
  "alloy-rpc-types-eth",
@@ -12202,12 +12174,12 @@ name = "tempo-primitives"
 version = "1.5.1"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-network",
  "alloy-primitives",
  "alloy-rlp",
  "alloy-rpc-types-eth",
- "alloy-serde",
+ "alloy-serde 2.0.0-rc.1",
  "alloy-signer",
  "alloy-signer-local",
  "alloy-sol-types",
@@ -12239,7 +12211,7 @@ name = "tempo-revm"
 version = "1.5.2"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-evm",
  "alloy-primitives",
  "alloy-rlp",
@@ -12304,7 +12276,7 @@ name = "tempo-transaction-pool"
 version = "1.5.2"
 dependencies = [
  "alloy-consensus",
- "alloy-eips",
+ "alloy-eips 2.0.0-rc.1",
  "alloy-evm",
  "alloy-primitives",
  "alloy-signer",
@@ -13036,24 +13008,24 @@ dependencies = [
 
 [[package]]
 name = "tree_hash"
-version = "0.10.0"
+version = "0.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ee44f4cef85f88b4dea21c0b1f58320bdf35715cf56d840969487cff00613321"
+checksum = "f7fd51aa83d2eb83b04570808430808b5d24fdbf479a4d5ac5dee4a2e2dd2be4"
 dependencies = [
  "alloy-primitives",
  "ethereum_hashing",
- "ethereum_ssz 0.9.1",
+ "ethereum_ssz",
  "smallvec",
  "typenum",
 ]
 
 [[package]]
 name = "tree_hash_derive"
-version = "0.10.0"
+version = "0.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0bee2ea1551f90040ab0e34b6fb7f2fa3bad8acc925837ac654f2c78a13e3089"
+checksum = "8840ad4d852e325d3afa7fde8a50b2412f89dce47d7eb291c0cc7f87cd040f38"
 dependencies = [
- "darling 0.20.11",
+ "darling 0.23.0",
  "proc-macro2",
  "quote",
  "syn 2.0.117",

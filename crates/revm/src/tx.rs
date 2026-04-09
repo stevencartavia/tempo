@@ -250,6 +250,20 @@ impl TransactionEnvMut for TempoTxEnv {
     }
 }
 
+impl reth_evm::TransactionEnvMut for TempoTxEnv {
+    fn set_gas_limit(&mut self, gas_limit: u64) {
+        reth_evm::TransactionEnvMut::set_gas_limit(&mut self.inner, gas_limit);
+    }
+
+    fn set_nonce(&mut self, nonce: u64) {
+        reth_evm::TransactionEnvMut::set_nonce(&mut self.inner, nonce);
+    }
+
+    fn set_access_list(&mut self, access_list: AccessList) {
+        reth_evm::TransactionEnvMut::set_access_list(&mut self.inner, access_list);
+    }
+}
+
 impl IntoTxEnv<Self> for TempoTxEnv {
     fn into_tx_env(self) -> Self {
         self
