@@ -191,6 +191,10 @@ def txgen-run-preset-pipeline [
     --git-ref: string = ""
     --build-profile: string = ""
     --benchmark-mode: string = ""
+    --benchmark-id: string = ""
+    --benchmark-run: string = ""
+    --run-type: string = ""
+    --victoriametrics-url: string = ""
 ] {
     let chain_id = (txgen-fetch-chain-id $generate_rpc_url)
     $env.TXGEN_ACCOUNTS = ($accounts | into string)
@@ -211,7 +215,7 @@ def txgen-run-preset-pipeline [
         "--seed" $TXGEN_HELPER_DEFAULT_SEED
         "--rpc" $generate_rpc_url
     ]
-    let bench_cmd = [
+    let bench_base_cmd = [
         $txgen_bench_bin
         "send"
         "--rpc-url" $submit_rpc_url
@@ -220,7 +224,11 @@ def txgen-run-preset-pipeline [
         "--metrics-url" $metrics_url
         "--scrape-interval-ms" $TXGEN_HELPER_SCRAPE_INTERVAL_MS
         "--drain-timeout" $TXGEN_HELPER_DRAIN_TIMEOUT_SECS
-        "--report" $"json:($report_path)"
+    ]
+    let report_args = ["--report" $"json:($report_path)"]
+        | append (if $victoriametrics_url != "" { ["--report" $"victoriametrics:($victoriametrics_url)"] } else { [] })
+    let metadata_args = [
+        "-m" "job=github-tempo-bench-e2e"
         "-m" $"chain_id=($chain_id)"
         "-m" $"target_tps=($tps)"
         "-m" $"run_duration_secs=($duration)"
@@ -234,6 +242,10 @@ def txgen-run-preset-pipeline [
         "-m" $"build_profile=($build_profile)"
         "-m" $"mode=($benchmark_mode)"
     ]
+        | append (if $benchmark_id != "" { ["-m" $"benchmark_id=($benchmark_id)"] } else { [] })
+        | append (if $benchmark_run != "" { ["-m" $"benchmark_run=($benchmark_run)"] } else { [] })
+        | append (if $run_type != "" { ["-m" $"run_type=($run_type)"] } else { [] })
+    let bench_cmd = $bench_base_cmd | append $report_args | append $metadata_args
 
     let bench_env_export = if $bench_env != "" { $"export ($bench_env) && " } else { "" }
     let txgen_cmd_str = (txgen-shell-join $txgen_cmd)
