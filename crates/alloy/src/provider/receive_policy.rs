@@ -76,6 +76,10 @@ impl BlockedTransfer {
     ///
     /// Returns `None` if the log is not a `TransferBlocked` event from the guard.
     pub fn from_log(log: &Log) -> Option<Self> {
+        if log.address != RECEIVE_POLICY_GUARD_ADDRESS {
+            return None;
+        }
+
         let event = TransferBlocked::decode_log(log).ok()?.data;
         Some(Self {
             token: event.token,
@@ -195,6 +199,24 @@ mod tests {
                 Bytes::new(),
             ),
         };
+        assert!(BlockedTransfer::from_log(&log).is_none());
+    }
+
+    #[test]
+    fn from_log_ignores_transfer_blocked_from_other_address() {
+        let event = TransferBlocked {
+            token: address!("0x20c0000000000000000000000000000000000001"),
+            receiver: address!("0x3333333333333333333333333333333333333333"),
+            blockedNonce: 1,
+            amount: uint!(5_U256),
+            receiptVersion: 1,
+            receipt: bytes!("0xabcd"),
+        };
+        let log = Log {
+            address: address!("0x4444444444444444444444444444444444444444"),
+            data: event.encode_log_data(),
+        };
+
         assert!(BlockedTransfer::from_log(&log).is_none());
     }
 
