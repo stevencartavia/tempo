@@ -389,8 +389,9 @@ where
             (replacement.hashed_address, storage)
         }));
 
-    // Trie updates are calculated before hashed storage is replaced, so removed slots must be
-    // represented as zeroes to keep the trie root consistent with the replacement state.
+    // A regenesis replacement has the same storage semantics as a destroyed and recreated
+    // account. Mark each account as previously existing so reth expands all old slots to zero;
+    // replacement values already in `hashed_state` take precedence over those zeroes.
     let destroyed_accounts = replacements
         .iter()
         .map(|replacement| {
